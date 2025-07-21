@@ -1,10 +1,10 @@
 print("Welcome To the Tip Calculator!")
 print("What was the total bill?")
-bill =0;
+bill =00.0;
 while True:
     bill= input()
     try:
-        bill = int(bill)
+        bill = float(bill)
         break;
     except:
         print("Please Use a number")
@@ -34,8 +34,8 @@ percent= percent/100
 percent= 1+percent
 total = float(bill*percent)
 split= total/participants
-total= str(total)
-split= str(split)
+total= str(round(total, 2))
+split= str(round(split, 2))
 
-print("Total is " + total)
-print("That is " + split +" among us" )
+print("Total is $" + total)
+print("That is $" + split +" among us" )
