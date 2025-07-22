@@ -16,8 +16,14 @@ specialChars = [
 ];
 
 desiredLetters=int(input("How many Letters would you like: "));
+
 desiredNumbers=int(input("How many Numbers would you like: "));
+
 desiredSpecial=int(input("How many Specials would you like: "));
+
+
+
+
 newList=""
 
 for x in range(desiredLetters):
