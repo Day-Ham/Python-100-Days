@@ -1,36 +1,68 @@
 import random
 
-alphabet = [
-  'a','b','c','d','e','f','g','h','i','j','k','l','m',
-  'n','o','p','q','r','s','t','u','v','w','x','y','z',
-  'A','B','C','D','E','F','G','H','I','J','K','L','M',
-  'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
-];
+words = [
+    "python",
+    "hangman",
+    "developer",
+    "keyboard",
+    "function",
+    "variable",
+    "algorithm",
+    "condition",
+    "syntax",
+    "iteration",
+    "object",
+    "inheritance",
+    "recursion",
+    "boolean",
+    "integer",
+    "compiler",
+    "exception",
+    "parameter",
+    "argument",
+    "loop",
+    "letter",
+    "success",
+    "banana",
+    "committee",
+    "balloon",
+    "mississippi",
+    "bottle",
+    "gossip",
+    "muffin",
+    "kettle",
+    "pepper",
+    "noodle",
+    "butter",
+    "address",
+    "bookkeeper"
+]
 
-numbers = ['0','1','2','3','4','5','6','7','8','9'];
 
-specialChars = [
-  '!','@','#','$','%','^','&','*','(',')','-','_','=','+',
-  '[',']','{','}','\\','|',';',':','\'','"','<','>',',',
-  '.','/','?','`','~'
-];
 
-desiredLetters=int(input("How many Letters would you like: "));
-desiredNumbers=int(input("How many Numbers would you like: "));
-desiredSpecial=int(input("How many Specials would you like: "));
-newList=""
 
-for x in range(desiredLetters):
-    randomLet= alphabet[random.randint(0,len(alphabet)-1)]
-    newList= newList + str(randomLet)
+HangWord= words[random.randint(0,len(words))]
+LetterBank=""
+print(HangWord)
 
-for x in range(desiredNumbers):
-    randomLet= numbers[random.randint(0,len(numbers)-1)]
-    newList= newList + str(randomLet)
+for letter in HangWord: # for each letter in the Hangman Word 
+    foundSimilar =False
+    for similar in LetterBank: # Check if there is a letter in the bank thats similar
+        if letter ==similar:
+            foundSimilar =True #if found it doesnt add
+            print("Found Similar")
+    if foundSimilar==False:
+        LetterBank = LetterBank+letter
 
-for x in range(desiredSpecial):
-    randomLet= specialChars[random.randint(0,len(specialChars)-1)]
-    newList= newList + str(randomLet)
-
-random.shuffle(list(newList))
-print(newList)
+print(LetterBank)
+print(len(LetterBank))
+while len(LetterBank)>0:
+    print("Try Guessing a Letter")
+    guess= input()
+    if guess in LetterBank:
+        print("Correct!")
+        NewLetterBank= LetterBank.replace(guess,"")
+        print(len(NewLetterBank))
+        LetterBank= NewLetterBank
+    print(LetterBank)
+print("GAME OVER")
