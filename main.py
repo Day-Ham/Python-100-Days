@@ -4,8 +4,11 @@ WordToEncrypt=input()
 print("Input the Number of Shifts")
 OffsetNumber=int(input())
 CypherWord=''
+WordToEncrypt = WordToEncrypt.lower()
 for letter in WordToEncrypt:
-   EncryptedLetter =chr((ord(letter)-OffsetNumber)%26)
+   base = ord('a')
+   shifted  =(ord(letter) - base + OffsetNumber) % 26
+   EncryptedLetter = chr(shifted + base)
    CypherWord +=EncryptedLetter
 
 print(CypherWord)
