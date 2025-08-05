@@ -30,8 +30,8 @@ while GameLoop:
     time.sleep(0.11)
 
 
-    #for seg in Body:
-    #   seg.forward(20)
+    for seg in Body:
+       seg.forward(20)
 
 
 
