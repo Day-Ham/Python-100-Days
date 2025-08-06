@@ -10,7 +10,7 @@ tt.pensize(2)
 tt.speed(10)
 tt.speed("fast")
 # Iterate six times in total
-for i in range(6):
+for i in range(8):
   
       # Choose your color combination
     for color in ('red', 'magenta', 'blue', 
