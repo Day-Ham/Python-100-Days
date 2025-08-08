@@ -1,55 +1,34 @@
-from turtle import Screen,Turtle
+# Import the turtle library for 
+# drawing the required curve
+from turtle import Turtle,Screen
 import time
-screen= Screen()
-screen.setup(width=600,height=600)
-screen.bgcolor('black')
-screen.title('Snek')
-screen.tracer(0)
-
-
-starting_position=[(0,0),(-20,0),(-40,0)]
-GameLoop=True;
-
-Body=[]
+screen = Screen()
 Head= Turtle()
-Head.shape("square")
-Head.color("white")
+GameLoop=True
 
-for pos in starting_position:
-    segment= Turtle()
-    segment.shape("square")
-    segment.color("white")
-    segment.penup()
-    segment.setpos(pos)
-    Body.append(segment)
 
-screen.update()
+def move_forward():
+    Head.setheading( 90) 
+def move_back():
+    Head.setheading(-90) 
+def rotate_clockwise():
+    Head.setheading(180) 
+    print(Head.heading)
+def rotate_counter_clockwise():
+    Head.setheading(0) 
+    print(Head.heading)
 
+screen.listen()
+screen.onkeypress(move_forward,'w')
+screen.onkeypress(move_back,'s')
+screen.onkeypress(rotate_clockwise,'a')
+screen.onkeypress(rotate_counter_clockwise,'d')
 while GameLoop:
+    
+    screen.listen() 
     screen.update()
     time.sleep(0.11)
+    Head.forward(20)
 
-
-    for seg in Body:
-       seg.forward(20)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+screen.title('Sketch Down')
 screen.exitonclick()
